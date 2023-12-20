@@ -22,21 +22,25 @@
     --min-hand-bg: #fff;
     --sec-hand-bg: #fff;
     --toggler-text: #fff;
+    --toggler-text-shadow: 2px 7px 5px rgba(255, 255, 255, 0.3),
+                           0px -4px 10px rgba(0,0,0,0.3);
 }
 
 .light {
     --page-bg: #c1d5f7;
     --clock-bg: #f5f3ff url('../assets/images/clock.png') center center/cover no-repeat;
-    --clock-border: 20px solid white;
+    --clock-border: 20px solid #fff;
     --clock-box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.1),
                         0 20px 20px rgba(0, 0, 0, 0.2),
                         0 0 0 4px rgba(255, 255, 255, 0.1);
     --dot-bg: #1a93f5;
-    --dot-border: 2px solid white;
+    --dot-border: 2px solid #fff;
     --hour-hand-bg: #ff105e;
     --min-hand-bg: #2c2c2c;
     --sec-hand-bg: #1a93f5;
     --toggler-text: #000;
+    --toggler-text-shadow: 2px 7px 5px rgba(0,0,0,0.3), 
+                           0px -4px 10px rgba(255,255,255,0.3);
 }
 
 .wrapper {
@@ -99,40 +103,34 @@
 }
 
 .hr, .mn, .sc {
+    height: 50%;
     position: absolute;
+    border-radius: 8px;
+    transition: background var(--transition);
 }
 
 .hr {
     width: 8px;
-    height: 50%;
     background: var(--hour-hand-bg);
     z-index: 10;
-    border-radius: 8px;
-    transform-origin: center bottom;
     bottom: 50%;
-    transition: background var(--transition);
+    transform-origin: center bottom;
 }
 
 .mn {
     width: 4px;
-    height: 50%;
     background: var(--min-hand-bg);
     z-index: 11;
-    border-radius: 8px;
-    transform-origin: center bottom;
     bottom: 50%;
-    transition: background var(--transition);
+    transform-origin: center bottom;
 }
 
 .sc {
     width: 2px;
-    height: 50%;
     background: var(--sec-hand-bg);
     z-index: 12;
-    border-radius: 8px;
     transform-origin: center 80%;
     bottom: 40%;
-    transition: background var(--transition);
 }
 
 .toggler {
@@ -149,7 +147,6 @@
 .toggler img {
     width: 35px;
     height: 35px;
-    border-radius: 50%;
     transition: all var(--transition);
 }
 
@@ -157,9 +154,9 @@
     width: 125px;
     user-select: none;    
     color: var(--toggler-text);  
-    transition: all var(--transition);
+    transition: color var(--transition);
 }
 
 .toggler:hover h2 {
-    text-decoration: underline;
+    text-shadow: var(--toggler-text-shadow);
 }
